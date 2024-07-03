@@ -14,7 +14,3 @@ while nuevo.lower() == 'si':
     nuevo = input('¿Quiere realizar otra orden? (si/no): ')
 
 nuevo = 'si'  # Inicializar con 'si' para que entre al ciclo while al menos una vez
-
-if nuevo.lower() == 'no':
-    print('Debe responder con si o no')
-    nuevo = input('¿Quiere realizar otra orden? (si/no): ')
