@@ -17,7 +17,7 @@ fondo = pygame.image.load("fondo.png")
 
 #Musica y Sonidos
 mixer.music.load("musica-peliculas-15-.mp3")
-mixer.music.set_volume(0.3)
+mixer.music.set_volume(0.8)
 mixer.music.play(-1)
 bala_ruido = "scifi002.mp3"
 impacto_sonido = "003576076_prev.mp3"
@@ -40,7 +40,7 @@ for e in range(cantidad_enemigos):
     img_enemigo.append(pygame.image.load("astronave.png"))
     enemigo_x.append(random.randint(0, 768))
     enemigo_y.append(random.randint(50, 200))
-    enemigo_x_cambio.append(0.3)
+    enemigo_x_cambio.append(0.8)
     enemigo_y_cambio.append(50)
 
 #Variables de la Bala
@@ -107,12 +107,12 @@ while ejecutar:
         #Evento de apretar teclas
         if evento.type == pygame.KEYDOWN:
             if evento.key == pygame.K_LEFT:
-                jugador_x_cambio = -0.3
+                jugador_x_cambio = -0.8
             if evento.key == pygame.K_RIGHT:
-                jugador_x_cambio = 0.3
+                jugador_x_cambio = 0.8
             if evento.key == pygame.K_SPACE:
                 ruido_bala = mixer.Sound(bala_ruido)
-                ruido_bala.set_volume(0.3)
+                ruido_bala.set_volume(0.8)
                 ruido_bala.play()
                 if not bala_visible:
                     bala_x = jugador_x
@@ -146,17 +146,17 @@ while ejecutar:
 
     #Mantener dentro de la pantalla al enemigo
         if enemigo_x[e] <= 0:
-            enemigo_x_cambio[e] = 0.3
+            enemigo_x_cambio[e] = 0.8
             enemigo_y[e] += enemigo_y_cambio[e]
         elif enemigo_x[e] >= 768:
-            enemigo_x_cambio[e] = -0.3
+            enemigo_x_cambio[e] = -0.8
             enemigo_y[e] += enemigo_y_cambio[e]
 
         #Impacto
         impacto = colision(enemigo_x[e], enemigo_y[e], bala_x, bala_y)
         if impacto:
             sonido_impacto = mixer.Sound(impacto_sonido)
-            sonido_impacto.set_volume(0.3)
+            sonido_impacto.set_volume(0.8)
             sonido_impacto.play()
             bala_y = 550
             bala_visible = False
