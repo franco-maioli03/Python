@@ -4,19 +4,6 @@ import os
 import numpy
 from datetime import datetime
 
-#Crear BD
-ruta = 'C:\\Users\\fmaioli\\Downloads\\Empleados'
-mis_imagenes = []
-nombres_empleados = []
-lista_empleados = os.listdir(ruta)
-
-for nombre in lista_empleados:
-    imagen_actual = cv2.imread(f'{ruta}\\{nombre}')
-    mis_imagenes.append(imagen_actual)
-    nombres_empleados.append(os.path.splitext(nombre)[0])
-
-print(nombres_empleados)
-
 #Codificar imagenes
 def codificar(imagenes):
 
@@ -48,6 +35,19 @@ def ingresos(persona):
     if persona not in nombres_registro:
         ahora = (datetime.now()).strftime('%H:%M:%S')
         f.writelines(f'\n{persona}, {ahora}')
+
+#Crear BD
+ruta = 'C:\\Users\\fmaioli\\Downloads\\Empleados'
+mis_imagenes = []
+nombres_empleados = []
+lista_empleados = os.listdir(ruta)
+
+for nombre in lista_empleados:
+    imagen_actual = cv2.imread(f'{ruta}\\{nombre}')
+    mis_imagenes.append(imagen_actual)
+    nombres_empleados.append(os.path.splitext(nombre)[0])
+
+print(nombres_empleados)
 
 lista_empleados_codificada = codificar(mis_imagenes)
 
